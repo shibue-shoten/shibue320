@@ -179,6 +179,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
+    }
+    .vehicle-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     .vehicle-card-img svg {
       width: 40px;
@@ -269,9 +276,7 @@
       <div class="container">
         <div class="service-detail fade-up">
           <div class="service-detail-img">
-            <!-- <img src="images/service-chip.jpg" alt="木質チップ運搬"> -->
-            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-            <span>木質チップ運搬の写真</span>
+            <img src="images/truck-01.jpeg" alt="木質チップ運搬">
             <span class="service-detail-img-label">主力事業</span>
           </div>
           <div class="service-detail-body">
@@ -398,7 +403,7 @@
         <div class="vehicles-grid">
           <div class="vehicle-card fade-up fade-up-delay-1">
             <div class="vehicle-card-img">
-              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <img src="images/truck-dump.jpeg" alt="大型ダンプ車">
             </div>
             <div class="vehicle-card-body">
               <h4>大型ダンプ車</h4>
@@ -407,7 +412,7 @@
           </div>
           <div class="vehicle-card fade-up fade-up-delay-2">
             <div class="vehicle-card-img">
-              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <img src="images/truck-slide.jpeg" alt="大型スライドデッキ車">
             </div>
             <div class="vehicle-card-body">
               <h4>大型スライドデッキ車</h4>
@@ -416,7 +421,7 @@
           </div>
           <div class="vehicle-card fade-up fade-up-delay-3">
             <div class="vehicle-card-img">
-              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+              <img src="images/truck-roll.jpeg" alt="大型アームロール車">
             </div>
             <div class="vehicle-card-body">
               <h4>大型アームロール車</h4>
@@ -425,8 +430,7 @@
           </div>
         </div>
         <p class="vehicles-note">
-          ※ 掲載は主要車種の一例です。保有12台すべての車種・スペック詳細はお問い合わせください。<br>
-          ※ 車両写真は順次掲載予定です。
+          ※ 掲載は主要車種の一例です。保有12台すべての車種・スペック詳細はお問い合わせください。
         </p>
       </div>
     </section>
