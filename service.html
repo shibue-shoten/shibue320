@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="有限会社渋江商店のサービス紹介。木質チップ運搬・RPF運搬を愛知県を中心に対応。11台の保有車両で安定稼働。">
+  <title>サービス・事業紹介 | 有限会社渋江商店</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* ── Service detail ── */
+    .service-detail {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .service-detail.reverse { direction: rtl; }
+    .service-detail.reverse > * { direction: ltr; }
+
+    .service-detail-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #d0dce8, #e8eef5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--color-main);
+      position: relative;
+    }
+    .service-detail-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .service-detail-img svg {
+      width: 64px;
+      height: 64px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 1;
+      opacity: 0.45;
+    }
+    .service-detail-img span { font-size: 0.8rem; opacity: 0.5; }
+    .service-detail-img-label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--color-main);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+      letter-spacing: 0.05em;
+    }
+
+    .service-detail-body {}
+    .service-detail-body h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .service-detail-body p {
+      color: var(--color-text-sub);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+
+    .feature-list { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.9rem 1rem;
+      background: var(--color-bg-gray);
+      border-radius: 6px;
+      border-left: 3px solid var(--color-main);
+    }
+    .feature-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .feature-item span { font-size: 0.875rem; line-height: 1.6; }
+
+    .section-divider {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 0;
+    }
+
+    /* ── Area section ── */
+    .area-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .area-body h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .area-body p {
+      color: var(--color-text-sub);
+      line-height: 1.9;
+      font-size: 0.92rem;
+      margin-bottom: 1rem;
+    }
+    .area-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+    .area-tag {
+      font-size: 0.8rem;
+      background: rgba(26,111,191,0.08);
+      color: var(--color-main);
+      border: 1px solid rgba(26,111,191,0.25);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .area-map-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #d0dce8, #e0e8f0);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--color-main);
+      opacity: 0.6;
+    }
+    .area-map-placeholder svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 1.5;
+    }
+    .area-map-placeholder span { font-size: 0.8rem; }
+
+    /* ── Vehicles ── */
+    .vehicles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .vehicle-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .vehicle-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+    .vehicle-card-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #e8eef5, #d0dce8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .vehicle-card-img svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 1.5;
+      opacity: 0.5;
+    }
+    .vehicle-card-body { padding: 0.9rem; }
+    .vehicle-card-body h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .vehicle-card-body p { font-size: 0.75rem; color: var(--color-text-sub); }
+
+    .vehicles-note {
+      margin-top: 1.5rem;
+      padding: 1rem 1.5rem;
+      background: rgba(26,111,191,0.05);
+      border-radius: 6px;
+      border-left: 3px solid var(--color-main);
+      font-size: 0.875rem;
+      color: var(--color-text-sub);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .service-detail, .service-detail.reverse { grid-template-columns: 1fr; direction: ltr; gap: 2rem; }
+      .area-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .vehicles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .vehicles-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="4" fill="#1A6FBF"/><path d="M8 24 L18 10 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="12" y="20" width="12" height="5" rx="1" fill="white" opacity="0.9"/><circle cx="14" cy="27" r="2" fill="#D4A017"/><circle cx="22" cy="27" r="2" fill="#D4A017"/></svg>
+        <div class="logo-text">
+          <span class="company-name">渋江商店</span>
+          <span class="company-name-sub">有限会社渋江商店</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="service.html" class="active">サービス</a>
+        <a href="company.html">会社概要</a>
+        <a href="president.html">代表挨拶</a>
+        <a href="recruit.html">採用情報</a>
+        <a href="access.html">アクセス</a>
+      </nav>
+      <a href="contact.html" class="btn btn-primary header-contact-btn">お問い合わせ</a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="service.html" class="mobile-nav-link">サービス</a>
+    <a href="company.html" class="mobile-nav-link">会社概要</a>
+    <a href="president.html" class="mobile-nav-link">代表挨拶</a>
+    <a href="recruit.html" class="mobile-nav-link">採用情報</a>
+    <a href="access.html" class="mobile-nav-link">アクセス</a>
+    <a href="contact.html" class="mobile-nav-link" style="color:var(--color-main);font-weight:700;">お問い合わせ</a>
+  </nav>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <span class="page-hero-eyebrow">Services</span>
+          <h1>サービス・事業紹介</h1>
+          <p>木質チップ・RPFを中心とした産業廃棄物運搬を愛知県全域・近隣県に提供します。</p>
+          <div class="breadcrumb">
+            <a href="index.html">TOP</a>
+            <span class="sep">›</span>
+            <span class="current">サービス・事業紹介</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Service 1: 木質チップ -->
+    <section class="section">
+      <div class="container">
+        <div class="service-detail fade-up">
+          <div class="service-detail-img">
+            <!-- <img src="images/service-chip.jpg" alt="木質チップ運搬"> -->
+            <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>木質チップ運搬の写真</span>
+            <span class="service-detail-img-label">主力事業</span>
+          </div>
+          <div class="service-detail-body">
+            <div class="accent-line">
+              <p class="sec-subtitle">Service 01</p>
+            </div>
+            <h2>木質チップ運搬</h2>
+            <p>
+              間伐材・製材端材・剪定枝などを粉砕した木質チップを、バイオマス発電所・製紙工場・ボイラー燃料施設などへ安全かつ確実に運搬します。
+            </p>
+            <p>
+              大型ウイングバン・ダンプ車両を中心とした運行で大量輸送に対応。長年の経験から培った積み付け技術と的確なルート選定により、品質劣化を防ぎながら時間どおりに納品します。
+            </p>
+            <div class="feature-list">
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>バイオマス発電所・製紙工場・ボイラー施設への納品実績多数</span>
+              </div>
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>大型・増トン車両による大量一括輸送に対応</span>
+              </div>
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>含水率・品質を意識した積み付け・養生管理</span>
+              </div>
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>定期便・スポット便どちらにも対応可能</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Service 2: RPF -->
+    <section class="section">
+      <div class="container">
+        <div class="service-detail reverse fade-up">
+          <div class="service-detail-img">
+            <!-- <img src="images/service-rpf.jpg" alt="RPF運搬"> -->
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3z"/><path d="M3 9h18M9 3v18"/></svg>
+            <span>RPF運搬の写真</span>
+            <span class="service-detail-img-label">産業廃棄物</span>
+          </div>
+          <div class="service-detail-body">
+            <div class="accent-line">
+              <p class="sec-subtitle">Service 02</p>
+            </div>
+            <h2>RPF（廃棄物固形燃料）運搬</h2>
+            <p>
+              廃プラスチック・紙くずを原料とするRPF（Refuse Paper & Plastic Fuel）の運搬を行います。セメント工場・製紙工場など、固形燃料を使用する施設への安定供給を長年にわたり支援してきました。
+            </p>
+            <p>
+              RPFは適切な搬送管理が品質維持に直結します。当社は保管・積載・輸送の各プロセスで品質を管理し、確実な供給体制を構築しています。
+            </p>
+            <div class="feature-list">
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>セメント工場・製紙工場への安定供給実績</span>
+              </div>
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>産業廃棄物収集運搬業許可のもと適正処理</span>
+              </div>
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>湿気・破砕を防ぐ積載管理で品質を維持</span>
+              </div>
+              <div class="feature-item">
+                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>循環型社会の実現に貢献する環境配慮型運搬</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 対応エリア -->
+    <section class="section section--gray" id="area">
+      <div class="container">
+        <div class="area-wrap">
+          <div class="area-body fade-up">
+            <div class="accent-line">
+              <p class="sec-subtitle">Service Area</p>
+            </div>
+            <h2>対応エリア</h2>
+            <p>
+              愛知県を中心に、岐阜県・三重県・静岡県など東海エリア全域に対応しています。名古屋港・四日市港周辺の物流拠点への運搬実績も豊富です。
+            </p>
+            <p>
+              エリア外のご要望についてもお気軽にご相談ください。対応可否を含め、最適なプランをご提案いたします。
+            </p>
+            <div class="area-tags">
+              <span class="area-tag">愛知県（全域）</span>
+              <span class="area-tag">岐阜県</span>
+              <span class="area-tag">三重県</span>
+              <span class="area-tag">静岡県</span>
+              <span class="area-tag">名古屋港周辺</span>
+              <span class="area-tag">四日市港周辺</span>
+              <span class="area-tag">その他相談可</span>
+            </div>
+          </div>
+          <div class="area-map-placeholder fade-up fade-up-delay-1">
+            <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>対応エリアマップ（画像差し替え予定）</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 保有車両 -->
+    <section class="section" id="vehicles">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="sec-subtitle">Our Vehicles</p>
+          <h2 class="sec-title">保有車両</h2>
+          <p class="sec-desc">11台の車両で、大小さまざまな輸送ニーズにお応えします。</p>
+        </div>
+        <div class="vehicles-grid">
+          <div class="vehicle-card fade-up fade-up-delay-1">
+            <div class="vehicle-card-img">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="vehicle-card-body">
+              <h4>大型ダンプ車</h4>
+              <p>木質チップ主力</p>
+            </div>
+          </div>
+          <div class="vehicle-card fade-up fade-up-delay-2">
+            <div class="vehicle-card-img">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="vehicle-card-body">
+              <h4>大型スライドデッキ車</h4>
+              <p>木質チップ主力</p>
+            </div>
+          </div>
+          <div class="vehicle-card fade-up fade-up-delay-3">
+            <div class="vehicle-card-img">
+              <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            </div>
+            <div class="vehicle-card-body">
+              <h4>大型アームロール車</h4>
+              <p>多用途対応</p>
+            </div>
+          </div>
+        </div>
+        <p class="vehicles-note">
+          ※ 掲載は主要車種の一例です。保有11台すべての車種・スペック詳細はお問い合わせください。<br>
+          ※ 車両写真は順次掲載予定です。
+        </p>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section class="contact-cta">
+      <div class="container">
+        <div class="contact-cta-inner">
+          <div class="accent-line" style="justify-content:center;">
+            <p class="sec-subtitle">Contact</p>
+          </div>
+          <h2 class="sec-title fade-up">運搬のご依頼・ご相談はお気軽に</h2>
+          <p class="fade-up fade-up-delay-1">
+            お見積りは無料です。運搬量・頻度・エリアなど、<br>
+            まずはお気軽にご相談ください。
+          </p>
+          <div class="contact-btns fade-up fade-up-delay-2">
+            <a href="contact.html" class="btn btn-primary" style="padding:1rem 2.5rem;">お問い合わせフォーム</a>
+          </div>
+          <div class="contact-tel-block fade-up fade-up-delay-3">
+            <span class="contact-tel-label">お電話でのお問い合わせ</span>
+            <a href="tel:0000000000" class="contact-tel-number">00-0000-0000</a>
+            <span class="contact-tel-time">受付時間：平日 9:00〜18:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="site-logo">
+            <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="4" fill="#1A6FBF"/><path d="M8 24 L18 10 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="12" y="20" width="12" height="5" rx="1" fill="white" opacity="0.9"/><circle cx="14" cy="27" r="2" fill="#D4A017"/><circle cx="22" cy="27" r="2" fill="#D4A017"/></svg>
+            <div class="logo-text">
+              <span class="company-name">渋江商店</span>
+              <span class="company-name-sub" style="color:rgba(255,255,255,0.45);">有限会社渋江商店</span>
+            </div>
+          </div>
+          <p class="footer-desc">創業27年。木質チップ・RPFをはじめとする<br>産業廃棄物運搬のプロフェッショナル。</p>
+          <p class="footer-address">〒000-0000 愛知県海部郡蟹江町○○番地<br>TEL: 00-0000-0000</p>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-title">Navigation</p>
+          <ul>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="service.html">サービス</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="president.html">代表挨拶</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-title">Information</p>
+          <ul>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="access.html">アクセス</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>&copy; 2024 有限会社渋江商店 All Rights Reserved.</small>
+        <small><a href="#" style="color:rgba(255,255,255,0.35);">ページトップへ</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('open'); });
+    document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

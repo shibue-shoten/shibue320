@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="有限会社渋江商店｜創業27年。木質チップ・RPF等の産業廃棄物運搬を中心に、信頼と実績で地域の物流を支えます。">
+  <title>有限会社渋江商店｜信頼の運搬力、27年の実績。</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ===========================
+       CSS Variables & Reset
+    =========================== */
+    :root {
+      --color-main: #1A6FBF;
+      --color-main-dark: #145a9e;
+      --color-accent: #D4A017;
+      --color-accent-dark: #b88a12;
+      --color-text: #1a1a1a;
+      --color-text-sub: #555;
+      --color-bg: #ffffff;
+      --color-bg-gray: #f5f6f8;
+      --color-bg-dark: #0d1a2b;
+      --color-border: #e0e4ea;
+      --font-serif: 'Noto Serif JP', serif;
+      --font-sans: 'Noto Sans JP', sans-serif;
+      --radius: 8px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-hover: 0 8px 32px rgba(0,0,0,0.15);
+      --transition: 0.3s ease;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    /* ===========================
+       Typography
+    =========================== */
+    .sec-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--color-text);
+    }
+
+    .sec-subtitle {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .sec-desc {
+      color: var(--color-text-sub);
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    /* ===========================
+       Layout
+    =========================== */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .section--gray {
+      background: var(--color-bg-gray);
+    }
+
+    .section--dark {
+      background: var(--color-bg-dark);
+      color: #fff;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-head .sec-title {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===========================
+       Buttons
+    =========================== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 4px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      border: 2px solid transparent;
+      font-family: var(--font-sans);
+    }
+
+    .btn-primary {
+      background: var(--color-main);
+      color: #fff;
+      border-color: var(--color-main);
+    }
+
+    .btn-primary:hover {
+      background: var(--color-main-dark);
+      border-color: var(--color-main-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(26,111,191,0.35);
+    }
+
+    .btn-accent {
+      background: var(--color-accent);
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+
+    .btn-accent:hover {
+      background: var(--color-accent-dark);
+      border-color: var(--color-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212,160,23,0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--color-main);
+      border-color: var(--color-main);
+    }
+
+    .btn-outline:hover {
+      background: var(--color-main);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: #fff;
+    }
+
+    /* ===========================
+       Header / Nav
+    =========================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow var(--transition);
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      padding: 0 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .site-logo svg {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .logo-text .company-name {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-main);
+    }
+
+    .logo-text .company-name-sub {
+      font-size: 0.65rem;
+      color: var(--color-text-sub);
+      letter-spacing: 0.05em;
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .site-nav a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--color-text);
+      transition: color var(--transition);
+      position: relative;
+    }
+
+    .site-nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-main);
+      transition: width var(--transition);
+    }
+
+    .site-nav a:hover {
+      color: var(--color-main);
+    }
+
+    .site-nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-contact-btn {
+      padding: 0.55rem 1.25rem;
+      font-size: 0.85rem;
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--color-text);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* Mobile menu */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-bottom: 1px solid var(--color-border);
+      padding: 1.5rem;
+      z-index: 999;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .mobile-menu.open {
+      display: flex;
+    }
+
+    .mobile-menu a {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--color-border);
+      color: var(--color-text);
+    }
+
+    .mobile-menu a:last-child {
+      border-bottom: none;
+    }
+
+    /* ===========================
+       Hero / FV
+    =========================== */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 68px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url('images/truck-02.jpeg') center/cover no-repeat;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 1.5rem;
+      max-width: 680px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 5.5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.3;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span {
+      color: var(--color-accent);
+    }
+
+    .hero-text {
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      color: rgba(255,255,255,0.88);
+      line-height: 1.9;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.6), transparent);
+      animation: scrollLine 1.5s ease-in-out infinite;
+    }
+
+    @keyframes scrollLine {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ===========================
+       What We Do
+    =========================== */
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .what-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .what-item:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .what-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.25rem;
+      background: linear-gradient(135deg, rgba(26,111,191,0.1), rgba(26,111,191,0.05));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .what-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .what-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+
+    .what-item p {
+      font-size: 0.875rem;
+      color: var(--color-text-sub);
+      line-height: 1.8;
+    }
+
+    /* ===========================
+       Numbers
+    =========================== */
+    .numbers-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .number-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .number-item:last-child {
+      border-right: none;
+    }
+
+    .number-label-top {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.08em;
+    }
+
+    .number-value {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      color: var(--color-accent);
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 0.15rem;
+    }
+
+    .number-value .unit {
+      font-size: 1.2rem;
+      font-family: var(--font-sans);
+    }
+
+    .number-label-bottom {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+      margin-top: 0.5rem;
+    }
+
+    /* ===========================
+       Services
+    =========================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .service-card-img {
+      width: 100%;
+      height: 220px;
+      background: var(--color-bg-gray);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .service-card-img img {
+      transform: scale(1.05);
+    }
+
+    .service-card-img-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      background: linear-gradient(135deg, #e8eef5, #d0dce8);
+      color: var(--color-main);
+    }
+
+    .service-card-img-placeholder svg {
+      width: 48px;
+      height: 48px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 1.5;
+      opacity: 0.6;
+    }
+
+    .service-card-img-placeholder span {
+      font-size: 0.75rem;
+      opacity: 0.6;
+    }
+
+    .service-card-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--color-main);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.65rem;
+      border-radius: 2px;
+    }
+
+    .service-card-body {
+      padding: 1.75rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .service-card-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+
+    .service-card-body p {
+      font-size: 0.875rem;
+      color: var(--color-text-sub);
+      line-height: 1.85;
+      flex: 1;
+    }
+
+    .service-card-footer {
+      margin-top: 1.25rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--color-text-sub);
+    }
+
+    .service-card-footer svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 2;
+      flex-shrink: 0;
+    }
+
+    /* Featured service (full width) */
+    .services-grid .service-card--featured {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+
+    .service-card--featured .service-card-img {
+      width: 45%;
+      height: auto;
+      min-height: 250px;
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       President
+    =========================== */
+    .president-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .president-photo-placeholder svg {
+      display: none;
+      fill: none;
+      stroke-width: 1;
+      opacity: 0.4;
+    }
+
+    .president-body blockquote {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      line-height: 1.8;
+      color: var(--color-text);
+      font-style: normal;
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .president-body blockquote::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--color-main);
+      border-radius: 2px;
+    }
+
+    .president-body p {
+      font-size: 0.9rem;
+      color: var(--color-text-sub);
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+
+    .president-sign {
+      margin-top: 1.75rem;
+      display: flex;
+      align-items: flex-end;
+      gap: 1rem;
+    }
+
+    .president-sign-text {
+      font-family: var(--font-serif);
+      line-height: 1.6;
+    }
+
+    .president-sign-text .position {
+      font-size: 0.8rem;
+      color: var(--color-text-sub);
+    }
+
+    .president-sign-text .name {
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    /* ===========================
+       Recruit Banner
+    =========================== */
+    .recruit-banner {
+      background: linear-gradient(135deg, var(--color-main) 0%, #2280d4 100%);
+      padding: 60px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .recruit-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .recruit-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .recruit-copy h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .recruit-copy p {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .recruit-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .recruit-tag {
+      font-size: 0.75rem;
+      background: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+
+    .recruit-cta {
+      flex-shrink: 0;
+    }
+
+    /* ===========================
+       Contact CTA
+    =========================== */
+    .contact-cta {
+      background: var(--color-bg-gray);
+      padding: 80px 0;
+    }
+
+    .contact-cta-inner {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .contact-cta-inner .sec-title {
+      margin-bottom: 1rem;
+    }
+
+    .contact-cta-inner p {
+      color: var(--color-text-sub);
+      margin-bottom: 2rem;
+      line-height: 1.9;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-tel-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      margin-top: 2rem;
+    }
+
+    .contact-tel-label {
+      font-size: 0.75rem;
+      color: var(--color-text-sub);
+      letter-spacing: 0.08em;
+    }
+
+    .contact-tel-number {
+      font-family: var(--font-serif);
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--color-main);
+      letter-spacing: 0.05em;
+    }
+
+    .contact-tel-time {
+      font-size: 0.75rem;
+      color: var(--color-text-sub);
+    }
+
+    /* ===========================
+       Footer
+    =========================== */
+    .site-footer {
+      background: #0a1520;
+      color: rgba(255,255,255,0.75);
+      padding: 60px 0 30px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo-text .company-name {
+      color: #fff;
+    }
+
+    .footer-desc {
+      font-size: 0.85rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.55);
+      margin-top: 1rem;
+    }
+
+    .footer-nav-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 1rem;
+    }
+
+    .footer-nav ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-nav ul li a {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      transition: color var(--transition);
+    }
+
+    .footer-nav ul li a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .footer-bottom small {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-address {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+
+    /* ===========================
+       Scroll animations
+    =========================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up-delay-1 { transition-delay: 0.1s; }
+    .fade-up-delay-2 { transition-delay: 0.2s; }
+    .fade-up-delay-3 { transition-delay: 0.3s; }
+    .fade-up-delay-4 { transition-delay: 0.4s; }
+
+    /* ===========================
+       Divider accent
+    =========================== */
+    .accent-line {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .accent-line::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 2px;
+      background: var(--color-accent);
+    }
+
+    /* ===========================
+       Responsive
+    =========================== */
+    @media (max-width: 1024px) {
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .number-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        padding: 1.5rem;
+      }
+
+      .number-item:nth-child(2n) {
+        border-right: none;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-brand {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .site-nav,
+      .header-contact-btn {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .what-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .what-item {
+        display: flex;
+        align-items: flex-start;
+        text-align: left;
+        gap: 1.25rem;
+        padding: 1.5rem;
+      }
+
+      .what-icon {
+        margin: 0;
+        flex-shrink: 0;
+        width: 52px;
+        height: 52px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      /* 詳細度をデスクトップと揃えて flex-direction を正しく上書き */
+      .services-grid .service-card--featured {
+        flex-direction: column;
+      }
+
+      /* SP: 全カードの画像エリアを高さ固定・間延び防止 */
+      .service-card-img {
+        width: 100%;
+        height: 160px;
+        min-height: 160px;
+        max-height: 180px;
+        flex-shrink: 0;
+      }
+
+      /* featuredカードの画像も同一サイズ・横幅100%に */
+      .services-grid .service-card--featured .service-card-img {
+        width: 100%;
+        height: 160px;
+        min-height: 160px;
+        max-height: 180px;
+        flex-shrink: 0;
+      }
+
+      /* placeholder を親の固定高さに合わせる */
+      .service-card-img-placeholder {
+        width: 100%;
+        height: 160px;
+        min-height: unset;
+        max-height: 180px;
+      }
+
+      .service-card-img-placeholder svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      /* body の flex: 1 による引き伸ばしを解除 */
+      .service-card-body {
+        flex: 0 0 auto;
+        padding: 1.1rem 1.25rem;
+      }
+
+      /* body内のpも引き伸ばさない */
+      .service-card-body p {
+        flex: none;
+      }
+
+      .president-wrap {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .president-photo {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+
+      .recruit-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .recruit-tags {
+        justify-content: center;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-btns .btn {
+        width: 100%;
+        max-width: 280px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .numbers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===========================
+       Header
+  =========================== -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <!-- Logo SVG placeholder -->
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="36" height="36" rx="4" fill="#1A6FBF"/>
+          <path d="M8 24 L18 10 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <rect x="12" y="20" width="12" height="5" rx="1" fill="white" opacity="0.9"/>
+          <circle cx="14" cy="27" r="2" fill="#D4A017"/>
+          <circle cx="22" cy="27" r="2" fill="#D4A017"/>
+        </svg>
+        <div class="logo-text">
+          <span class="company-name">渋江商店</span>
+          <span class="company-name-sub">有限会社渋江商店</span>
+        </div>
+      </a>
+
+      <nav class="site-nav">
+        <a href="service.html">サービス</a>
+        <a href="company.html">会社概要</a>
+        <a href="president.html">代表挨拶</a>
+        <a href="recruit.html">採用情報</a>
+        <a href="access.html">アクセス</a>
+      </nav>
+
+      <a href="contact.html" class="btn btn-primary header-contact-btn">お問い合わせ</a>
+
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="service.html" class="mobile-nav-link">サービス</a>
+    <a href="company.html" class="mobile-nav-link">会社概要</a>
+    <a href="president.html" class="mobile-nav-link">代表挨拶</a>
+    <a href="recruit.html" class="mobile-nav-link">採用情報</a>
+    <a href="access.html" class="mobile-nav-link">アクセス</a>
+    <a href="contact.html" class="mobile-nav-link" style="color: var(--color-main); font-weight: 700;">お問い合わせ</a>
+  </nav>
+
+  <main>
+
+    <!-- ===========================
+         Hero / FV
+    =========================== -->
+    <section class="hero" id="top">
+      <div class="hero-bg"></div>
+      <div class="container">
+        <div class="hero-content">
+          <span class="hero-eyebrow">Shibue Shoten Co., Ltd.</span>
+          <h1 class="hero-title">
+            信頼の運搬力、<br>
+            <span>27年</span>の実績。
+          </h1>
+          <p class="hero-text">
+            木質チップ・RPFをはじめとする産業廃棄物の運搬を中心に、<br>
+            長年にわたって地域の物流を支えてきました。<br>
+            安全・確実・迅速。渋江商店の仕事に妥協はありません。
+          </p>
+          <div class="hero-btns">
+            <a href="#services" class="btn btn-accent">サービスを見る</a>
+            <a href="contact.html" class="btn btn-outline-white">お問い合わせ</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll">
+        <div class="hero-scroll-line"></div>
+        <span>SCROLL</span>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         What We Do
+    =========================== -->
+    <section class="section" id="what">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="sec-subtitle">What We Do</p>
+          <h2 class="sec-title">渋江商店が<br class="sp-only">選ばれる3つの理由</h2>
+          <p class="sec-desc">創業以来変わらないこだわりで、お客様の信頼にお応えします。</p>
+        </div>
+        <div class="what-grid">
+          <div class="what-item fade-up fade-up-delay-1">
+            <div class="what-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+            </div>
+            <div>
+              <h3>豊富な運搬実績</h3>
+              <p>創業27年、木質チップ・RPF・一般廃棄物など多様な物資の運搬を手がけ、年間数百件以上の安定した実績を誇ります。</p>
+            </div>
+          </div>
+          <div class="what-item fade-up fade-up-delay-2">
+            <div class="what-icon">
+              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <div>
+              <h3>安全第一の運行管理</h3>
+              <p>ドライバー全員の安全教育を徹底。法令を遵守した運行管理体制で、事故ゼロを目指して毎日業務にあたっています。</p>
+            </div>
+          </div>
+          <div class="what-item fade-up fade-up-delay-3">
+            <div class="what-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h3>地域密着の信頼関係</h3>
+              <p>長年にわたり地域の企業様・行政と連携。お客様の現場ニーズに柔軟に対応できる体制を整えています。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         Numbers
+    =========================== -->
+    <section class="section section--dark" id="numbers">
+      <div class="container">
+        <div class="section-head fade-up" style="margin-bottom: 2.5rem;">
+          <p class="sec-subtitle" style="color: var(--color-accent);">Our Numbers</p>
+          <h2 class="sec-title" style="color: #fff;">数字で見る渋江商店</h2>
+        </div>
+        <div class="numbers-grid">
+          <div class="number-item fade-up fade-up-delay-1">
+            <div class="number-label-top">創業</div>
+            <div class="number-value">
+              <span class="count" data-target="27">0</span>
+              <span class="unit">年</span>
+            </div>
+            <div class="number-label-bottom">変わらぬ信頼と実績</div>
+          </div>
+          <div class="number-item fade-up fade-up-delay-2">
+            <div class="number-label-top">従業員数</div>
+            <div class="number-value">
+              <span class="count" data-target="13">0</span>
+              <span class="unit">名</span>
+            </div>
+            <div class="number-label-bottom">経験豊富なチーム</div>
+          </div>
+          <div class="number-item fade-up fade-up-delay-3">
+            <div class="number-label-top">車両保有台数</div>
+            <div class="number-value">
+              <span class="count" data-target="11">0</span>
+              <span class="unit">台</span>
+            </div>
+            <div class="number-label-bottom">多彩な車種で対応</div>
+          </div>
+          <div class="number-item fade-up fade-up-delay-4">
+            <div class="number-label-top">月間稼働件数</div>
+            <div class="number-value">
+              <span class="count" data-target="500">0</span>
+              <span class="unit">件</span>
+            </div>
+            <div class="number-label-bottom">月間約500件の安定稼働</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         Services
+    =========================== -->
+    <section class="section section--gray" id="services">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="sec-subtitle">Services</p>
+          <h2 class="sec-title">サービス紹介</h2>
+          <p class="sec-desc">産業廃棄物運搬を中心に、お客様のニーズに合わせた運送サービスを提供します。</p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1: Featured -->
+          <div class="service-card service-card--featured fade-up">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder">
+                <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                <span>木質チップ運搬のイメージ写真</span>
+              </div>
+              <!-- <img src="images/service-chip.jpg" alt="木質チップ運搬"> -->
+              <span class="service-card-tag">主力事業</span>
+            </div>
+            <div class="service-card-body">
+              <h3>木質チップ運搬</h3>
+              <p>
+                間伐材・製材端材などを粉砕した木質チップを、バイオマス発電所・製紙工場などへ安全かつ確実に運搬します。
+                大型車両を中心とした運行で、大量輸送にも対応可能。
+                長年の経験から培った積み付け技術により、輸送中の品質劣化を最小限に抑えます。
+              </p>
+              <div class="service-card-footer">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>詳しいサービス内容はお問い合わせください</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="service-card fade-up fade-up-delay-1">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder">
+                <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3V3z"/><path d="M3 9h18M9 3v18"/></svg>
+                <span>RPF運搬のイメージ写真</span>
+              </div>
+              <!-- <img src="images/service-rpf.jpg" alt="RPF運搬"> -->
+              <span class="service-card-tag">産業廃棄物</span>
+            </div>
+            <div class="service-card-body">
+              <h3>RPF運搬</h3>
+              <p>
+                廃プラスチックや紙くずを原料とするRPF（固形燃料）の運搬を行います。
+                セメント工場・製紙工場などへの安定した供給を支援し、循環型社会の実現に貢献します。
+              </p>
+              <div class="service-card-footer">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>詳しいサービス内容はお問い合わせください</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="service-card fade-up fade-up-delay-2">
+            <div class="service-card-img">
+              <div class="service-card-img-placeholder">
+                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>その他運搬・請負のイメージ写真</span>
+              </div>
+              <!-- <img src="images/service-other.jpg" alt="その他運搬"> -->
+              <span class="service-card-tag">その他</span>
+            </div>
+            <div class="service-card-body">
+              <h3>その他産廃・一般貨物運搬</h3>
+              <p>
+                木質チップ・RPF以外にも、各種産業廃棄物や一般貨物の運搬にも対応します。
+                まずはお気軽にご相談ください。最適なプランをご提案します。
+              </p>
+              <div class="service-card-footer">
+                <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                <span>詳しいサービス内容はお問い合わせください</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         President
+    =========================== -->
+    <section class="section" id="greeting">
+      <div class="container">
+        <div class="president-wrap">
+          <div class="president-body fade-up">
+            <div class="accent-line">
+              <p class="sec-subtitle">Message from President</p>
+            </div>
+            <h2 class="sec-title" style="margin-bottom: 1.5rem;">代表挨拶</h2>
+            <blockquote>
+              「物を運ぶ」という仕事は、<br>
+              社会の根幹を支えることだと<br>
+              信じています。
+            </blockquote>
+            <p>
+              弊社は創業以来27年にわたり、木質チップやRPFなどの産業廃棄物運搬を通じて、
+              地域の産業と環境の両立に貢献してまいりました。
+            </p>
+            <p>
+              これからも「安全・確実・迅速」を合言葉に、お客様からの信頼に応え続けることが
+              私たちの使命と考えております。
+            </p>
+            <div class="president-sign">
+              <div class="president-sign-text">
+                <div class="position">有限会社渋江商店　代表取締役</div>
+                <div class="name">渋江 ○○</div>
+              </div>
+            </div>
+            <a href="president.html" class="btn btn-outline" style="margin-top: 2rem;">代表挨拶を読む</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===========================
+         Recruit Banner
+    =========================== -->
+    <div class="recruit-banner fade-up" id="recruit">
+      <div class="container">
+        <div class="recruit-inner">
+          <div class="recruit-copy">
+            <h2>一緒に働く仲間を募集しています</h2>
+            <p>
+              現在、ドライバー職を中心に積極採用中。<br>
+              未経験者も歓迎。一緒に成長しましょう。
+            </p>
+            <div class="recruit-tags">
+              <span class="recruit-tag">ドライバー</span>
+              <span class="recruit-tag">未経験OK</span>
+              <span class="recruit-tag">社会保険完備</span>
+              <span class="recruit-tag">研修制度あり</span>
+            </div>
+          </div>
+          <div class="recruit-cta">
+            <a href="recruit.html" class="btn btn-accent" style="padding: 1rem 2.5rem; font-size: 1rem;">
+              採用情報を見る
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ===========================
+         Contact CTA
+    =========================== -->
+    <section class="contact-cta" id="contact">
+      <div class="container">
+        <div class="contact-cta-inner">
+          <div class="accent-line" style="justify-content: center;">
+            <p class="sec-subtitle">Contact</p>
+          </div>
+          <h2 class="sec-title fade-up">お気軽にご相談ください</h2>
+          <p class="fade-up fade-up-delay-1">
+            運搬に関するご相談・お見積りは無料です。<br>
+            お電話またはお問い合わせフォームよりお気軽にどうぞ。
+          </p>
+          <div class="contact-btns fade-up fade-up-delay-2">
+            <a href="contact.html" class="btn btn-primary" style="padding: 1rem 2.5rem;">
+              お問い合わせフォーム
+            </a>
+          </div>
+          <div class="contact-tel-block fade-up fade-up-delay-3">
+            <span class="contact-tel-label">お電話でのお問い合わせ</span>
+            <a href="tel:0000000000" class="contact-tel-number">00-0000-0000</a>
+            <span class="contact-tel-time">受付時間：平日 9:00〜18:00</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ===========================
+       Footer
+  =========================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="site-logo">
+            <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="36" height="36" rx="4" fill="#1A6FBF"/>
+              <path d="M8 24 L18 10 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <rect x="12" y="20" width="12" height="5" rx="1" fill="white" opacity="0.9"/>
+              <circle cx="14" cy="27" r="2" fill="#D4A017"/>
+              <circle cx="22" cy="27" r="2" fill="#D4A017"/>
+            </svg>
+            <div class="logo-text">
+              <span class="company-name">渋江商店</span>
+              <span class="company-name-sub" style="color: rgba(255,255,255,0.45);">有限会社渋江商店</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            創業27年。木質チップ・RPFをはじめとする<br>
+            産業廃棄物運搬のプロフェッショナル。<br>
+            安全・確実・迅速を使命に、地域の物流を支えます。
+          </p>
+          <p class="footer-address">
+            〒000-0000 ○○県○○市○○町○○番地<br>
+            TEL: 00-0000-0000　FAX: 00-0000-0000
+          </p>
+        </div>
+
+        <div class="footer-nav">
+          <p class="footer-nav-title">Navigation</p>
+          <ul>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="service.html">サービス</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="president.html">代表挨拶</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-nav">
+          <p class="footer-nav-title">Information</p>
+          <ul>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="access.html">アクセス</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <small>&copy; 2024 有限会社渋江商店 All Rights Reserved.</small>
+        <small><a href="#top" style="color: rgba(255,255,255,0.35);">ページトップへ</a></small>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // ===========================
+    // Header scroll effect
+    // ===========================
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+
+    // ===========================
+    // Hamburger menu
+    // ===========================
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+      });
+    });
+
+
+    // ===========================
+    // Scroll animation (Intersection Observer)
+    // ===========================
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    fadeEls.forEach(el => observer.observe(el));
+
+
+    // ===========================
+    // Count-up animation
+    // ===========================
+    const countEls = document.querySelectorAll('.count');
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.dataset.target, 10);
+          const duration = 1500;
+          const step = Math.ceil(target / (duration / 16));
+          let current = 0;
+
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = current.toLocaleString();
+          }, 16);
+
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    countEls.forEach(el => countObserver.observe(el));
+
+
+    // ===========================
+    // Smooth scroll for anchor links
+    // ===========================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        e.preventDefault();
+        const offset = 68;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="有限会社渋江商店の採用情報。大型トラックドライバー募集中。月給35万円〜、社保完備。愛知県海部郡蟹江町勤務。未経験歓迎。">
+  <title>採用情報 | 有限会社渋江商店</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <style>
+    /* ── Recruit Hero ── */
+    .recruit-page-hero {
+      padding: 140px 0 80px;
+      background:
+        linear-gradient(rgba(13,26,43,0.72), rgba(26,111,191,0.6)),
+        url('images/recruit-bg.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    .recruit-page-hero .page-hero-eyebrow { color: var(--color-accent); border-color: var(--color-accent); }
+
+    /* ── Appeal cards ── */
+    .appeal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .appeal-card {
+      background: #fff;
+      border-radius: 8px;
+      padding: 2rem 1.5rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .appeal-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+    .appeal-card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, rgba(26,111,191,0.1), rgba(26,111,191,0.05));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+    .appeal-card-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--color-main);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .appeal-card h3 { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .appeal-card p { font-size: 0.85rem; color: var(--color-text-sub); line-height: 1.7; }
+
+    /* ── Job table ── */
+    .job-section { padding: 80px 0; }
+    .job-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+    .job-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .job-table tr { border-bottom: 1px solid var(--color-border); }
+    .job-table tr:first-child { border-top: 1px solid var(--color-border); }
+    .job-table th {
+      padding: 1.1rem 1rem 1.1rem 0;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-text-sub);
+      text-align: left;
+      vertical-align: top;
+      width: 30%;
+      white-space: nowrap;
+    }
+    .job-table th::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 0.85em;
+      background: var(--color-main);
+      border-radius: 2px;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .job-table td {
+      padding: 1.1rem 0.5rem;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      vertical-align: top;
+    }
+    .job-table td strong { color: var(--color-main); }
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 2px;
+      margin-right: 0.35rem;
+      vertical-align: middle;
+    }
+    .badge-required { background: var(--color-main); color: #fff; }
+    .badge-welcome { background: var(--color-accent); color: #fff; }
+
+    .benefit-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .benefit-tag {
+      font-size: 0.78rem;
+      background: rgba(26,111,191,0.07);
+      color: var(--color-main);
+      border: 1px solid rgba(26,111,191,0.2);
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+    }
+
+    /* ── Flow ── */
+    .flow-section { padding: 80px 0; background: var(--color-bg-gray); }
+    .flow-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+      margin-top: 2rem;
+    }
+    .flow-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 2px;
+      background: var(--color-border);
+      z-index: 0;
+    }
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+    .flow-step-num {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--color-main);
+      color: #fff;
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 16px rgba(26,111,191,0.3);
+    }
+    .flow-step h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .flow-step p { font-size: 0.78rem; color: var(--color-text-sub); line-height: 1.6; }
+
+    /* ── Recruit CTA ── */
+    .recruit-cta-section {
+      padding: 80px 0;
+      background: linear-gradient(135deg, var(--color-main), #2280d4);
+      text-align: center;
+    }
+    .recruit-cta-section h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: #fff;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .recruit-cta-section p { color: rgba(255,255,255,0.8); margin-bottom: 2.5rem; line-height: 1.8; }
+    .recruit-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .recruit-tel-block { margin-top: 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.2rem; }
+    .recruit-tel-label { font-size: 0.75rem; color: rgba(255,255,255,0.7); }
+    .recruit-tel-number { font-family: var(--font-serif); font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 700; color: #fff; }
+    .recruit-tel-time { font-size: 0.75rem; color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 900px) {
+      .appeal-grid { grid-template-columns: 1fr; gap: 1rem; }
+      /* gridで icon(1列目) + h3/p(2列目) を正しく配置 */
+      .appeal-card {
+        display: grid;
+        grid-template-columns: 52px 1fr;
+        grid-template-rows: auto auto;
+        column-gap: 1rem;
+        row-gap: 0.2rem;
+        align-items: start;
+        text-align: left;
+        padding: 1.1rem 1.25rem;
+      }
+      .appeal-card-icon {
+        grid-column: 1;
+        grid-row: 1 / 3;
+        margin: 0;
+        align-self: center;
+        width: 52px;
+        height: 52px;
+      }
+      .appeal-card h3 { grid-column: 2; grid-row: 1; align-self: end; margin-bottom: 0; }
+      .appeal-card p  { grid-column: 2; grid-row: 2; }
+      .flow-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .flow-steps::before { display: none; }
+    }
+    @media (max-width: 480px) {
+      .flow-steps { grid-template-columns: 1fr; gap: 1.5rem; }
+      /* SP: appeal cards 細調整 */
+      .appeal-card { padding: 1rem; column-gap: 0.85rem; }
+      .appeal-card-icon { width: 44px; height: 44px; }
+      .appeal-card h3 { font-size: 0.92rem; }
+      .appeal-card p { font-size: 0.81rem; line-height: 1.6; }
+      /* SP: job table */
+      .job-table th,
+      .job-table td { font-size: 0.82rem; padding: 0.85rem 0.4rem; }
+      .job-table th { width: 32%; white-space: normal; }
+      .benefit-tags { gap: 0.35rem; }
+      .benefit-tag { font-size: 0.72rem; padding: 0.2rem 0.55rem; }
+      .badge { font-size: 0.6rem; }
+      /* SP: flow */
+      .flow-step-num { width: 56px; height: 56px; font-size: 1.1rem; }
+      .flow-step h4 { font-size: 0.82rem; }
+      .flow-step p { font-size: 0.75rem; }
+      /* SP: recruit CTA */
+      .recruit-cta-section h2 { font-size: 1.25rem; }
+      .recruit-cta-section p { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="4" fill="#1A6FBF"/><path d="M8 24 L18 10 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="12" y="20" width="12" height="5" rx="1" fill="white" opacity="0.9"/><circle cx="14" cy="27" r="2" fill="#D4A017"/><circle cx="22" cy="27" r="2" fill="#D4A017"/></svg>
+        <div class="logo-text">
+          <span class="company-name">渋江商店</span>
+          <span class="company-name-sub">有限会社渋江商店</span>
+        </div>
+      </a>
+      <nav class="site-nav">
+        <a href="service.html">サービス</a>
+        <a href="company.html">会社概要</a>
+        <a href="president.html">代表挨拶</a>
+        <a href="recruit.html" class="active">採用情報</a>
+        <a href="access.html">アクセス</a>
+      </nav>
+      <a href="contact.html" class="btn btn-primary header-contact-btn">お問い合わせ</a>
+      <button class="hamburger" id="hamburger" aria-label="メニュー">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobile-menu">
+    <a href="service.html" class="mobile-nav-link">サービス</a>
+    <a href="company.html" class="mobile-nav-link">会社概要</a>
+    <a href="president.html" class="mobile-nav-link">代表挨拶</a>
+    <a href="recruit.html" class="mobile-nav-link">採用情報</a>
+    <a href="access.html" class="mobile-nav-link">アクセス</a>
+    <a href="contact.html" class="mobile-nav-link" style="color:var(--color-main);font-weight:700;">お問い合わせ</a>
+  </nav>
+
+  <main>
+    <!-- Page Hero -->
+    <section class="page-hero recruit-page-hero">
+      <div class="container">
+        <div class="page-hero-content">
+          <span class="page-hero-eyebrow">Recruit</span>
+          <h1>採用情報</h1>
+          <p>一緒に働く仲間を募集しています。<br>未経験者歓迎。年齢・前職不問。</p>
+          <div class="breadcrumb">
+            <a href="index.html">TOP</a>
+            <span class="sep">›</span>
+            <span class="current">採用情報</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Appeal -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="sec-subtitle">Why Join Us</p>
+          <h2 class="sec-title">渋江商店で働く魅力</h2>
+        </div>
+        <div class="appeal-grid">
+          <div class="appeal-card fade-up fade-up-delay-1">
+            <div class="appeal-card-icon">
+              <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3>月給35万円〜</h3>
+            <p>業界水準以上の安定した給与。経験・実績に応じてしっかり評価します。</p>
+          </div>
+          <div class="appeal-card fade-up fade-up-delay-2">
+            <div class="appeal-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3>未経験・前職不問</h3>
+            <p>大型免許があれば業界未経験でも大歓迎。先輩ドライバーが丁寧にサポートします。</p>
+          </div>
+          <div class="appeal-card fade-up fade-up-delay-3">
+            <div class="appeal-card-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <h3>年3回の連休</h3>
+            <p>正月・GW・お盆に連休あり。メリハリをつけてしっかり休める環境です。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Job Details -->
+    <section class="job-section section--gray">
+      <div class="container">
+        <div class="fade-up">
+          <div class="accent-line">
+            <p class="sec-subtitle">Job Description</p>
+          </div>
+          <h2>募集要項</h2>
+        </div>
+        <table class="job-table">
+          <tr class="fade-up">
+            <th>職種</th>
+            <td><strong>大型トラックドライバー</strong></td>
+          </tr>
+          <tr class="fade-up">
+            <th>業務内容</th>
+            <td>木質チップ・RPF（廃棄物固形燃料）などの産業廃棄物を、工場・発電所・処理施設へ運搬する業務。愛知県を中心とした東海エリアでの配送が中心です。</td>
+          </tr>
+          <tr class="fade-up">
+            <th>給与</th>
+            <td><strong>月給 35万円〜</strong><br><span style="font-size:0.85rem;color:var(--color-text-sub);">経験・能力を考慮して決定します。</span></td>
+          </tr>
+          <tr class="fade-up">
+            <th>勤務時間</th>
+            <td>応相談（詳細はご面談にてご確認ください）</td>
+          </tr>
+          <tr class="fade-up">
+            <th>休日・休暇</th>
+            <td>
+              年3回の連休（正月・GW・お盆）<br>
+              ※勤務シフトについてはご相談ください
+            </td>
+          </tr>
+          <tr class="fade-up">
+            <th>勤務地</th>
+            <td>愛知県海部郡蟹江町（本社）</td>
+          </tr>
+          <tr class="fade-up">
+            <th>応募資格</th>
+            <td>
+              <span class="badge badge-required">必須</span>大型自動車免許<br>
+              <div style="margin-top:0.5rem;">
+                <span class="badge badge-welcome">歓迎</span>未経験者歓迎 ／ 年齢・前職不問
+              </div>
+            </td>
+          </tr>
+          <tr class="fade-up">
+            <th>待遇・福利厚生</th>
+            <td>
+              <div class="benefit-tags">
+                <span class="benefit-tag">社会保険完備</span>
+                <span class="benefit-tag">雇用保険</span>
+                <span class="benefit-tag">労災保険</span>
+                <span class="benefit-tag">マイカー通勤可</span>
+                <span class="benefit-tag">バイク通勤可</span>
+                <span class="benefit-tag">服装自由（動きやすい服装）</span>
+                <span class="benefit-tag">制服貸与</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="fade-up">
+            <th>応募方法</th>
+            <td>
+              下記の応募フォームよりお申し込みいただくか、お電話にてご連絡ください。<br>
+              <span style="font-size:0.85rem;color:var(--color-text-sub);">面接日程は追って調整させていただきます。</span>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- 選考フロー -->
+    <section class="flow-section">
+      <div class="container">
+        <div class="section-head fade-up">
+          <p class="sec-subtitle">Selection Flow</p>
+          <h2 class="sec-title">選考の流れ</h2>
+        </div>
+        <div class="flow-steps">
+          <div class="flow-step fade-up fade-up-delay-1">
+            <div class="flow-step-num">01</div>
+            <h4>ご応募</h4>
+            <p>フォームまたはお電話でご連絡ください</p>
+          </div>
+          <div class="flow-step fade-up fade-up-delay-2">
+            <div class="flow-step-num">02</div>
+            <h4>書類確認</h4>
+            <p>ご応募内容を確認の上、ご連絡します</p>
+          </div>
+          <div class="flow-step fade-up fade-up-delay-3">
+            <div class="flow-step-num">03</div>
+            <h4>面接</h4>
+            <p>本社にてご面談。雰囲気をお伝えします</p>
+          </div>
+          <div class="flow-step fade-up fade-up-delay-4">
+            <div class="flow-step-num">04</div>
+            <h4>内定・入社</h4>
+            <p>入社日はご希望に合わせて調整します</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recruit CTA -->
+    <section class="recruit-cta-section">
+      <div class="container">
+        <h2 class="fade-up">まずはお気軽にご連絡ください</h2>
+        <p class="fade-up fade-up-delay-1">
+          「話を聞いてみたい」だけでも大歓迎です。<br>
+          お気軽にお問い合わせください。
+        </p>
+        <div class="recruit-cta-btns fade-up fade-up-delay-2">
+          <a href="contact.html?type=recruit" class="btn btn-accent" style="padding:1rem 2.5rem;font-size:1rem;">応募フォームへ</a>
+          <a href="contact.html" class="btn btn-outline-white" style="padding:1rem 2rem;">お問い合わせ</a>
+        </div>
+        <div class="recruit-tel-block fade-up fade-up-delay-3">
+          <span class="recruit-tel-label">お電話でのご応募・お問い合わせ</span>
+          <a href="tel:0000000000" class="recruit-tel-number">00-0000-0000</a>
+          <span class="recruit-tel-time">受付時間：平日 9:00〜18:00</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="site-logo">
+            <svg viewBox="0 0 36 36" fill="none"><rect width="36" height="36" rx="4" fill="#1A6FBF"/><path d="M8 24 L18 10 L28 24" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/><rect x="12" y="20" width="12" height="5" rx="1" fill="white" opacity="0.9"/><circle cx="14" cy="27" r="2" fill="#D4A017"/><circle cx="22" cy="27" r="2" fill="#D4A017"/></svg>
+            <div class="logo-text">
+              <span class="company-name">渋江商店</span>
+              <span class="company-name-sub" style="color:rgba(255,255,255,0.45);">有限会社渋江商店</span>
+            </div>
+          </div>
+          <p class="footer-desc">創業27年。木質チップ・RPFをはじめとする<br>産業廃棄物運搬のプロフェッショナル。</p>
+          <p class="footer-address">〒000-0000 愛知県海部郡蟹江町○○番地<br>TEL: 00-0000-0000</p>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-title">Navigation</p>
+          <ul>
+            <li><a href="index.html">トップページ</a></li>
+            <li><a href="service.html">サービス</a></li>
+            <li><a href="company.html">会社概要</a></li>
+            <li><a href="president.html">代表挨拶</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav">
+          <p class="footer-nav-title">Information</p>
+          <ul>
+            <li><a href="recruit.html">採用情報</a></li>
+            <li><a href="access.html">アクセス</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>&copy; 2024 有限会社渋江商店 All Rights Reserved.</small>
+        <small><a href="#" style="color:rgba(255,255,255,0.35);">ページトップへ</a></small>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => { header.classList.toggle('scrolled', window.scrollY > 50); }, { passive: true });
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    hamburger.addEventListener('click', () => { hamburger.classList.toggle('active'); mobileMenu.classList.toggle('open'); });
+    document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => { hamburger.classList.remove('active'); mobileMenu.classList.remove('open'); }));
+    const observer = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
